@@ -1,0 +1,165 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo-box {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+  }
+
+  &__nav {
+    align-self: stretch;
+  }
+
+  &__nav-list {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.about {
+  &__flex-container {
+    width: 60%;
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
+
+  &__grid {
+    flex: 0 0 58%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "fig2 fig2 fig1"
+      "fig4 fig5 fig1"
+      "fig4 fig3 fig3";
+    grid-template-rows: auto;
+    gap: 0.5em;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__figure-1 {
+    grid-area: fig1;
+  }
+
+  &__figure-2 {
+    grid-area: fig2;
+  }
+
+  &__figure-3 {
+    grid-area: fig3;
+  }
+
+  &__figure-4 {
+    grid-area: fig4;
+  }
+
+  &__figure-5 {
+    grid-area: fig5;
+  }
+
+  &__info {
+    flex: 0 0 38%;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    justify-content: center;
+  }
+}
+
+.body {
+  &__container {
+    width: 100%;
+    max-width: 120em;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 400px);
+    grid-auto-rows: 800px;
+    gap: 6em;
+
+    justify-content: center;
+  }
+}
+
+.planets {
+  &__button {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    gap: 1rem;
+    justify-content: space-between;
+  }
+
+  &__info-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.weight,
+.jump {
+  &__main-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+.gravity,
+.radius {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10rem;
+}
+
+.escape-velocity,
+.temp {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10rem;
+}
+
+.jump {
+  &__main-container {
+    justify-content: flex-end;
+  }
+}
+
+.size {
+  display: flex;
+  justify-content: space-between;
+
+  &__main-info-container {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  &__info-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 6rem;
+  }
+}

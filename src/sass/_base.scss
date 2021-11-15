@@ -1,0 +1,61 @@
+:root {
+  --color-bg: rgb(0, 0, 0);
+
+  --color-font: rgba(240, 240, 240, 1);
+
+  --color-font-dark: rgb(119, 119, 119);
+
+  --color-font-darker: rgb(100, 100, 100);
+
+  --color-primary-light: rgb(40, 159, 195);
+
+  --color-primary: rgb(34, 121, 180);
+
+  --border-bottom: 1px solid rgba(240, 240, 240, 0.3);
+
+  --text-shadow-color: rgba(255, 255, 255, 0.4);
+
+  --gradient: linear-gradient(
+    to right bottom,
+    var(--color-primary-light),
+    var(--color-primary)
+  );
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fff;
+  background-color: var(--color-bg);
+}
+
+main {
+  height: 100vh;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 6rem;
+}
+h2 {
+  font-weight: 400;
+  font-size: 4rem;
+}
+
+.gradient-text {
+  // display: inline-block;
+  background-image: var(--gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}

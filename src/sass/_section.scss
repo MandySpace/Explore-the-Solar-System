@@ -1,0 +1,510 @@
+.header {
+  // border-bottom: var(--border-bottom);
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%;
+  // background-color: var(--color-bg);
+  background: transparent;
+  // backdrop-filter: blur(10px) brightness(0.2);
+
+  &__logo-box {
+    width: 50px;
+    height: 50px;
+    margin-left: 4em;
+    cursor: pointer;
+  }
+
+  &__logo {
+    width: 100%;
+  }
+
+  &__name {
+    font-size: 3rem;
+  }
+
+  &__nav-list {
+    list-style: none;
+    margin-right: 3em;
+  }
+
+  &__nav-item {
+    padding: 0.5em 1em;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--border-bottom);
+
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var(--color-primary-light);
+      background-color: #fff;
+    }
+  }
+}
+
+.top {
+  background-image: url("../img/solar_system.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+
+  &__container {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+  }
+
+  &__heading {
+    width: 100%;
+    margin: 0 auto;
+    animation: opacity-anim 1s ease-in 1s;
+    animation-fill-mode: backwards;
+  }
+
+  & span {
+    display: inline-block;
+    animation: moveLeft 1s cubic-bezier(0.89, 0.24, 0.73, 1.22) 1.5s;
+    animation-fill-mode: backwards;
+  }
+
+  &__sub-heading {
+    font-size: 2rem;
+    font-weight: 100;
+    letter-spacing: 30px;
+    text-transform: uppercase;
+
+    background-color: rgb(13, 18, 21);
+    width: max-content;
+    margin: 0 auto;
+    margin-top: -0.5em;
+    animation: moveUp 0.8s cubic-bezier(0.73, 0.3, 0.68, 1.26);
+    animation-delay: 3s;
+    animation-fill-mode: backwards;
+  }
+
+  &__btn {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    text-decoration: none;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.about {
+  padding: 5rem 5rem;
+  padding-top: 10rem;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+
+  &__flex-container {
+    outline: 5px solid var(--color-font-darker);
+    padding: 4em;
+  }
+
+  &__heading {
+    margin-bottom: 1em;
+    color: var(--color-font-darker);
+    position: relative;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    backface-visibility: hidden;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 1);
+    will-change: transform;
+    transition: transform 0.3s;
+  }
+
+  &__figure-1,
+  &__figure-2,
+  &__figure-3,
+  &__figure-4,
+  &__figure-5 {
+    overflow: hidden;
+    &:hover img {
+      transform: scale(1.1);
+    }
+  }
+
+  &__figure-2__img,
+  &__figure-3__img {
+    aspect-ratio: 2/1;
+  }
+
+  &__figure-4__img,
+  &__figure-1__img {
+    aspect-ratio: 1/2;
+  }
+
+  &__figure-5__img {
+    aspect-ratio: 1/1;
+  }
+
+  &__info {
+    padding: 1em 2em;
+
+    &__paragraph {
+      color: var(--color-font-dark);
+      font-size: 1rem;
+    }
+  }
+}
+
+.body {
+  background-color: #fff;
+  padding: 5rem 0;
+
+  &__title {
+    color: var(--color-font-darker);
+    text-align: center;
+    margin: 1em 0;
+  }
+
+  &__container {
+    padding: 5em;
+  }
+
+  &__card {
+    background-color: #fff;
+    color: var(--color-font-dark);
+
+    :not(:last-child) {
+      margin-bottom: 1rem;
+    }
+    :not(:first-child) {
+      padding: 0 1.5rem;
+    }
+
+    &__img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+      margin-bottom: 4rem;
+      will-change: transform;
+      transition: transform 0.3s ease-out;
+    }
+
+    &__name {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    &__count {
+      margin-top: 2rem;
+    }
+
+    &:hover &__img {
+      transform: scale(1.05);
+    }
+  }
+}
+
+.planets {
+  height: calc(100vh - 80px);
+  background-color: #000;
+  background-image: url("../img/planets/mercury.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 100% 50%;
+  padding-top: 10em;
+  margin-top: 80px;
+
+  &__title {
+    text-align: center;
+    padding: 1em 0 0.5em 0;
+    text-shadow: 0 3px 8px #000;
+  }
+
+  &__button {
+    padding: 0 15rem;
+    &__name {
+      text-decoration: none;
+      color: var(--color-font);
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+  }
+
+  &__info {
+    // margin: 5em auto;
+    padding: 0 15em;
+    max-width: 120em;
+
+    &__title {
+      font-size: 8rem;
+    }
+
+    &__about {
+      width: 50ch;
+      margin: 3em 0;
+    }
+
+    &__data-list {
+      list-style: none;
+    }
+  }
+}
+
+.weight,
+.jump {
+  padding: 10rem 15rem;
+  // padding-top: 10rem;
+  background-color: #000;
+
+  &__form__input {
+    width: 300px;
+    height: 200px;
+    padding: 1rem;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 8rem;
+    text-align: center;
+    border: none;
+
+    &:focus {
+      border: 8px solid var(--color-primary-light);
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    &-label {
+      font-size: 2rem;
+    }
+  }
+
+  &__form__radio {
+    display: none;
+
+    &-1:checked + label,
+    &-2:checked + label {
+      color: var(--color-primary-light);
+      background: #fff;
+    }
+  }
+
+  &__form__radio-label {
+    font-size: 4rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    outline: 4px solid #fff;
+  }
+
+  &__result {
+    font-size: 2rem;
+    text-align: center;
+
+    &__answer {
+      font-size: 12rem;
+      position: relative;
+
+      &::before,
+      &::after {
+        position: absolute;
+        font-size: 2rem;
+      }
+
+      &::before {
+        content: "You weigh";
+        top: 10%;
+        left: 0;
+      }
+
+      &::after {
+        content: "on Mercury";
+        bottom: 10%;
+        right: 0;
+      }
+    }
+  }
+}
+
+.distance {
+  padding: 10rem 15rem;
+  text-align: right;
+  // background: url("../img/planets/sun.jpeg");
+  // background-size: cover;
+  // background-position: top left;
+  overflow: hidden;
+  position: relative;
+  text-shadow: 0 2px 50px rgba(0, 0, 0, 0.548);
+
+  &__answer {
+    font-size: 12rem;
+    margin-top: -5rem;
+  }
+
+  &__sun-img {
+    width: 150%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    position: absolute;
+    top: 0%;
+    right: -60%;
+    z-index: -10;
+  }
+}
+
+.gravity,
+.radius {
+  padding: 10rem 15rem;
+  text-align: left;
+
+  &__desc {
+    width: 50ch;
+    min-width: 506px;
+    margin-bottom: 4rem;
+  }
+
+  &__answer {
+    font-size: 12rem;
+    margin-top: -5rem;
+  }
+
+  &__img {
+    width: 40%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: 63% 0%;
+    margin: 0 auto;
+  }
+}
+
+.radius {
+  height: 900px;
+
+  img {
+    width: 50%;
+    border-radius: 50%;
+  }
+}
+
+.gravity {
+  img {
+    transform: rotate(-30deg);
+  }
+}
+
+.jump {
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+  position: relative;
+
+  &__result__answer {
+    &::before,
+    &::after {
+      position: absolute;
+      font-size: 2rem;
+    }
+
+    &::before {
+      content: "You can jump";
+      top: 10%;
+      left: 0;
+    }
+
+    &::after {
+      content: "on Mercury";
+      bottom: 10%;
+      right: 0;
+    }
+  }
+}
+
+.size {
+  text-align: left;
+  padding: 10rem 15rem;
+
+  &__title {
+    line-height: 0.9;
+    margin-bottom: 2rem;
+    width: 20ch;
+  }
+
+  &__desc {
+    width: 50ch;
+    margin-bottom: 2rem;
+  }
+
+  &__data {
+    list-style: none;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  &__volume {
+    font-size: 12rem;
+    position: relative;
+
+    &::before {
+      content: "Volume of Mercury is";
+      font-size: 2rem;
+      position: absolute;
+      top: 20%;
+      left: 0;
+    }
+  }
+
+  &__earth {
+    width: 50%;
+    max-width: 600px;
+    display: inline-block;
+  }
+
+  &__answer {
+    font-size: 6rem;
+  }
+}
+
+.temp,
+.escape-velocity {
+  padding: 10rem 15rem;
+
+  &__desc {
+    width: 50ch;
+    min-width: 506px;
+    margin-bottom: 4rem;
+  }
+
+  &__answer {
+    font-size: 12rem;
+    margin-top: -5rem;
+  }
+
+  img {
+    width: 40%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: right;
+    margin: 0 auto;
+  }
+}
