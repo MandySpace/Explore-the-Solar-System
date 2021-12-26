@@ -144,8 +144,9 @@
     width: 100%;
     margin: 0 auto;
     padding: 0 1em;
-    line-height: 1.2;
+    line-height: 0.9;
     overflow: hidden;
+    padding: 0.5rem 0;
 
     span {
       display: inline-block;
@@ -254,7 +255,7 @@
     }
   }
 
-  @media screen and (max-width: 34.68rem) {
+  @media screen and (max-width: 34.68em) {
     padding: 7rem 0rem;
   }
 }
@@ -262,7 +263,7 @@
 .made-of {
   padding: 10rem 5rem;
 
-  @media screen and (max-width: 34.68rem) {
+  @media screen and (max-width: 34.68em) {
     padding: 7rem 0rem;
   }
 
@@ -413,6 +414,10 @@
     @media screen and (max-width: 43.75em) {
       order: 2;
       padding: 0;
+    }
+
+    @media screen and (max-width: 31.25em) {
+      font-size: 1.5rem;
     }
   }
 

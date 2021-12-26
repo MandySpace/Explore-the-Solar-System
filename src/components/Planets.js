@@ -51,14 +51,7 @@ function Planets({
         </div>
       </div>
       <div className="planets__img-cont">
-        <motion.img
-          variants={fadeInAnim(0, 0.3)}
-          initial="hidden"
-          animate={control}
-          src={image}
-          alt="planet"
-          className="planets__img-cont__img"
-        />
+        <img src={image} alt="planet" className="planets__img-cont__img" />
       </div>
     </section>
   );
