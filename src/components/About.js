@@ -1,56 +1,35 @@
-import planets_split from "../img/planets_split.jpeg";
-import planets_size_comparison from "../img/planets_size_comparison.jpeg";
-import planets_cartoon from "../img/planets_cartoon.jpeg";
-import vertical_planets from "../img/vertical_planets.png";
-import neptune_about from "../img/neptune_about.png";
+import astronaut from "../img/astronaut_looking_up.jpg";
+import spaceShuttle from "../img/space_shuttle_orbit.jpg";
+import useScroll from "./useScroll";
+import { moveLeftAnim, moveRightAnim, moveUpAnim } from "../animations";
+import { motion } from "framer-motion";
 
 function About() {
+  const [title, titleControl] = useScroll(0.5);
+  const [containerFirst, containerFirstControl] = useScroll(0.5);
+  const [containerSecond, containerSecondControl] = useScroll(0.5);
+
   return (
     <section className="about">
-      <h2 className="about__heading">About our Solar System</h2>
-      <div className="about__flex-container">
-        <div className="about__grid">
-          <figure className="about__figure-1">
-            <img
-              src={planets_split}
-              alt="Planets of solar system vertical illustration"
-              className="about__figure-1__img about__img"
-            />
-          </figure>
-
-          <figure className="about__figure-2">
-            <img
-              src={planets_size_comparison}
-              alt="Size comparison of Mercury, Venus, Earth , Mars to scale"
-              className="about__figure-2__img about__img"
-            />
-          </figure>
-
-          <figure className="about__figure-3">
-            <img
-              src={planets_cartoon}
-              alt="Illustration of solar system"
-              className="about__figure-3__img about__img"
-            />
-          </figure>
-
-          <figure className="about__figure-4">
-            <img
-              src={vertical_planets}
-              alt="Planets shown in a vertical portrait"
-              className="about__figure-4__img about__img"
-            />
-          </figure>
-
-          <figure className="about__figure-5">
-            <img
-              src={neptune_about}
-              alt="Neptune in space surrounded by stars"
-              className="about__figure-5__img about__img"
-            />
-          </figure>
+      <motion.h2
+        className="about__heading"
+        ref={title}
+        variants={moveUpAnim}
+        initial="hidden"
+        animate={titleControl}
+      >
+        What is a Solar System?
+      </motion.h2>
+      <motion.div
+        className="about__flex-container"
+        ref={containerFirst}
+        variants={moveRightAnim}
+        initial="hidden"
+        animate={containerFirstControl}
+      >
+        <div className="about__img">
+          <img src={spaceShuttle} alt="astronaut in orbit" />
         </div>
-
         <div className="about__info">
           <p className="about__info__paragraph">
             The Solar System is the gravitationally bound system of the Sun and
@@ -68,7 +47,37 @@ function About() {
             more massive than the terrestrials.
           </p>
         </div>
-      </div>
+      </motion.div>
+
+      <motion.div
+        className="about__flex-container"
+        ref={containerSecond}
+        variants={moveLeftAnim}
+        initial="hidden"
+        animate={containerSecondControl}
+      >
+        <div className="about__info flex-order-1">
+          <p className="about__info__paragraph">
+            For most of history, humanity did not recognize or understand the
+            concept of the Solar System. Most people up to the Late Middle
+            Ages–Renaissance believed Earth to be stationary at the centre of
+            the universe and categorically different from the divine or ethereal
+            objects that moved through the sky.
+          </p>
+          <p className="about__info__paragraph">
+            Around 1677, Edmond Halley observed a transit of Mercury across the
+            Sun, leading him to realise that observations of the solar parallax
+            of a planet could be used to trigonometrically determine the
+            distances between Earth, Venus, and the Sun. In 1705, Halley
+            realised that repeated sightings of a comet were of the same object,
+            returning regularly once every 75–76 years. This was the first
+            evidence that anything other than the planets orbited the Sun.
+          </p>
+        </div>
+        <div className="about__img flex-order-2">
+          <img src={astronaut} alt="astronaut looking up" />
+        </div>
+      </motion.div>
     </section>
   );
 }

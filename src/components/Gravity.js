@@ -1,9 +1,20 @@
-import gravity from "../img/gravity.jpg";
+import gravity_img from "../img/gravity.jpg";
+import { motion } from "framer-motion";
+import { moveLeftAnim } from "../animations";
+import useScroll from "../components/useScroll";
 
-function Gravity() {
+function Gravity({ gravity }) {
+  const [element, control] = useScroll(0.5);
+
   return (
-    <section className="gravity">
-      <img src={gravity} alt="apple falling" className="gravity__img" />
+    <motion.section
+      variants={moveLeftAnim}
+      initial="hidden"
+      animate={control}
+      ref={element}
+      className="gravity max-width"
+    >
+      <img src={gravity_img} alt="apple falling" className="gravity__img" />
       <div className="gravity__info-container">
         <h2 className="gravity__title">Gravity</h2>
         <p className="gravity__desc">
@@ -13,9 +24,11 @@ function Gravity() {
           infinite range, although its effects become weaker as objects get
           farther away.
         </p>
-        <p className="gravity__answer big-font">5 m/s&#xb2;</p>
+        <p className="gravity__answer big-font">
+          {(+gravity.split(" ")[0]).toFixed(1)} m/s<sup>2</sup>
+        </p>
       </div>
-    </section>
+    </motion.section>
   );
 }
 

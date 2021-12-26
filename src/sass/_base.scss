@@ -3,9 +3,13 @@
 
   --color-font: rgba(240, 240, 240, 1);
 
+  --color-font-lighter: rgba(240, 240, 240, 0.8);
+
   --color-font-dark: rgb(119, 119, 119);
 
   --color-font-darker: rgb(100, 100, 100);
+
+  --color-font-darkest: rgb(54, 54, 54);
 
   --color-primary-light: rgb(40, 159, 195);
 
@@ -30,23 +34,50 @@
   box-sizing: border-box;
 }
 
+html {
+  font-size: 100%;
+
+  @media screen and (max-width: 112.5em) {
+    font-size: 75%;
+  }
+
+  @media screen and (max-width: 90em) and (orientation: landscape) {
+    font-size: 50%;
+  }
+
+  @media screen and (max-width: 68.75em) {
+    font-size: 60%;
+  }
+
+  @media screen and (max-width: 64em) and (orientation: landscape) {
+    font-size: 40%;
+  }
+
+  @media screen and (max-width: 50em) {
+    font-size: 50%;
+  }
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: 300;
   font-size: 1rem;
   line-height: 1.6;
-  color: #fff;
+  color: var(--color-font);
   background-color: var(--color-bg);
 }
 
 main {
   height: 100vh;
+  position: relative;
 }
 
 h1 {
   font-weight: 700;
   font-size: 6rem;
+  line-height: 0.9;
 }
+
 h2 {
   font-weight: 400;
   font-size: 4rem;
@@ -58,4 +89,35 @@ h2 {
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
+}
+
+.max-width {
+  max-width: 120rem;
+  margin: 0 auto;
+
+  @media screen and (max-width: 90em) and (orientation: landscape) {
+    max-width: 150rem;
+  }
+}
+
+p {
+  @media screen and (max-width: 112.5em) {
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 50em) {
+    font-size: 1.3rem;
+  }
+}
+
+.big-font {
+  font-size: 12rem;
+
+  @media screen and (max-width: 93.5em) {
+    font-size: 8rem;
+  }
+
+  @media screen and (max-width: 28.125em) {
+    font-size: 4rem;
+  }
 }

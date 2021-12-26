@@ -1,37 +1,56 @@
 .header {
-  // border-bottom: var(--border-bottom);
   height: 100px;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 100;
   width: 100%;
-  // background-color: var(--color-bg);
   background: transparent;
-  // backdrop-filter: blur(10px) brightness(0.2);
+  padding: 0 10rem;
+  // position: relative;
+
+  @media screen and (max-width: 68.75em) {
+    height: 70px;
+  }
 
   &__logo-box {
-    width: 50px;
-    height: 50px;
-    margin-left: 4em;
     cursor: pointer;
+    text-decoration: none;
+
+    @media screen and (max-width: 34.68em) {
+      display: none;
+    }
   }
 
   &__logo {
-    width: 100%;
+    width: 42px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    // display: none;
+
+    @media screen and (max-width: 93.75em) {
+      width: 30px;
+    }
   }
 
   &__name {
+    font-family: "Buda", cursive;
     font-size: 3rem;
+    color: var(--color-font);
+    line-height: 0.9;
+
+    @media screen and (min-width: 93.75em) {
+      line-height: 0.9;
+    }
   }
 
   &__nav-list {
     list-style: none;
-    margin-right: 3em;
   }
 
   &__nav-item {
-    padding: 0.5em 1em;
+    padding: 0.2em 1em;
     text-transform: capitalize;
     font-size: 1.5rem;
     cursor: pointer;
@@ -41,39 +60,104 @@
     transition: all 0.2s ease;
 
     &:hover {
-      color: var(--color-primary-light);
-      background-color: #fff;
+      color: #fff;
+      // background-color: rgba(255, 255, 255, 0.212);
+      background-image: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0.212),
+        rgba(255, 255, 255, 0.2)
+      );
     }
+  }
+
+  .active-page {
+    color: #000;
+    // background-color: rgba(255, 255, 255, 0.835);
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.835),
+      rgba(255, 255, 255, 0.65)
+    );
+  }
+
+  .hamburger {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 0.7rem;
+    background-color: rgba(0, 0, 0, 0.39);
+    border-radius: 50px;
+    margin-right: 2em;
+
+    position: fixed;
+    right: 0;
+    z-index: 500;
+
+    @media screen and (min-width: 34.68em) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 34.68em) {
+    position: fixed;
+    top: 0;
   }
 }
 
 .top {
-  background-image: url("../img/solar_system.jpg");
+  background-image: url("../img/solar_system_1_2400.jpg"),
+    radial-gradient(transparent 60%, rgba(0, 0, 0, 0.5));
   background-size: cover;
-  background-position: center;
+  background-position: 0% 80%;
+  background-attachment: fixed;
+  background-blend-mode: overlay;
   height: 100vh;
   position: relative;
 
+  @media screen and (min-width: 2400px) {
+    background-image: url("../img/solar_system_1.jpg");
+  }
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.438);
+  }
+
   &__container {
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     width: 100%;
+
+    @media screen and (max-width: 68.75em) {
+      top: 35%;
+    }
   }
 
   &__heading {
+    font-size: 8rem;
     width: 100%;
     margin: 0 auto;
-    animation: opacity-anim 1s ease-in 1s;
-    animation-fill-mode: backwards;
-  }
+    padding: 0 1em;
+    line-height: 1.2;
+    overflow: hidden;
 
-  & span {
-    display: inline-block;
-    animation: moveLeft 1s cubic-bezier(0.89, 0.24, 0.73, 1.22) 1.5s;
-    animation-fill-mode: backwards;
+    span {
+      display: inline-block;
+    }
+
+    @media screen and (max-width: 34.68rem) {
+      font-size: 6rem;
+    }
+
+    @media screen and (max-width: 20.31rem) {
+      font-size: 5rem;
+    }
   }
 
   &__sub-heading {
@@ -81,14 +165,34 @@
     font-weight: 100;
     letter-spacing: 30px;
     text-transform: uppercase;
+    text-shadow: 2px 10px 10px #000;
 
-    background-color: rgb(13, 18, 21);
     width: max-content;
     margin: 0 auto;
-    margin-top: -0.5em;
-    animation: moveUp 0.8s cubic-bezier(0.73, 0.3, 0.68, 1.26);
-    animation-delay: 3s;
+    margin-top: 0.5em;
+    animation: moveUp 1s cubic-bezier(0.73, 0.3, 0.68, 1.26);
+    animation-delay: 2s;
     animation-fill-mode: backwards;
+
+    backdrop-filter: blur(1px);
+
+    @media screen and (max-width: 68.75em) {
+      margin-top: 1em;
+      letter-spacing: 20px;
+    }
+
+    @media screen and (max-width: 34.68em) {
+      margin-top: 1.5em;
+      letter-spacing: 15px;
+      width: 90%;
+      animation: fadeAnim 0.8s cubic-bezier(0.73, 0.3, 0.68, 1.26);
+      animation-delay: 1.5s;
+      animation-fill-mode: backwards;
+    }
+
+    @media screen and (max-width: 25rem) {
+      font-size: 1.5rem;
+    }
   }
 
   &__btn {
@@ -97,92 +201,103 @@
     text-decoration: none;
     font-size: 1.5rem;
     position: absolute;
-    top: 75%;
+    top: 70%;
     left: 50%;
+    cursor: pointer;
+
+    animation: gradient-anim 1s 3.5s;
+
+    // animation-fill-mode: backwards;
+
     transform: translate(-50%, -50%);
+
+    @media screen and (max-width: 68.75em) {
+      font-size: 1.8rem;
+    }
+
+    @media screen and (max-width: 34.68em) {
+      top: 70%;
+      font-size: 1.5rem;
+      padding: 0.5em 2em;
+    }
   }
 }
 
 .about {
-  padding: 5rem 5rem;
-  padding-top: 10rem;
+  padding: 10rem 5rem;
   background-color: rgb(255, 255, 255);
-  position: relative;
+  color: var(--color-font-darker);
+  overflow-x: hidden;
 
   &__flex-container {
-    outline: 5px solid var(--color-font-darker);
-    padding: 4em;
+    background-color: white;
+    padding: 5em 0;
   }
 
   &__heading {
-    margin-bottom: 1em;
+    text-align: center;
+    margin-bottom: 5rem;
     color: var(--color-font-darker);
-    position: relative;
-  }
+    line-height: 0.9;
 
-  &__img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    backface-visibility: hidden;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 1);
-    will-change: transform;
-    transition: transform 0.3s;
-  }
-
-  &__figure-1,
-  &__figure-2,
-  &__figure-3,
-  &__figure-4,
-  &__figure-5 {
-    overflow: hidden;
-    &:hover img {
-      transform: scale(1.1);
+    @media screen and (max-width: 34.68rem) {
+      margin-bottom: 2rem;
     }
   }
 
-  &__figure-2__img,
-  &__figure-3__img {
-    aspect-ratio: 2/1;
-  }
+  &__info__paragraph {
+    max-width: 70ch;
+    margin: 0 auto;
 
-  &__figure-4__img,
-  &__figure-1__img {
-    aspect-ratio: 1/2;
-  }
-
-  &__figure-5__img {
-    aspect-ratio: 1/1;
-  }
-
-  &__info {
-    padding: 1em 2em;
-
-    &__paragraph {
-      color: var(--color-font-dark);
-      font-size: 1rem;
+    @media screen and (max-width: 43.75em) {
+      margin-top: 2rem;
     }
+  }
+
+  @media screen and (max-width: 34.68rem) {
+    padding: 7rem 0rem;
+  }
+}
+
+.made-of {
+  padding: 10rem 5rem;
+
+  @media screen and (max-width: 34.68rem) {
+    padding: 7rem 0rem;
+  }
+
+  .body__title {
+    color: var(--color-font);
+    max-width: 20ch;
+    line-height: 0.9;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+
+  .body__header-p {
+    color: var(--color-font-lighter);
   }
 }
 
 .body {
+  color: var(--color-font-darker);
   background-color: #fff;
-  padding: 5rem 0;
+  padding: 10rem 5rem;
+  padding-bottom: 10rem;
 
   &__title {
-    color: var(--color-font-darker);
     text-align: center;
-    margin: 1em 0;
+    line-height: 0.9;
+    margin-bottom: 5rem;
   }
 
   &__container {
-    padding: 5em;
+    padding: 5em 1em;
   }
 
   &__card {
-    background-color: #fff;
-    color: var(--color-font-dark);
+    color: var(--color-font-darker);
 
     :not(:last-child) {
       margin-bottom: 1rem;
@@ -193,7 +308,7 @@
 
     &__img {
       width: 100%;
-      height: 400px;
+      aspect-ratio: 1;
       object-fit: cover;
       object-position: center;
       border-radius: 50%;
@@ -203,29 +318,64 @@
     }
 
     &__name {
-      text-align: center;
+      font-size: 2rem;
+      // text-align: center;
       margin-top: 2rem;
+      color: var(--color-font-darkest);
     }
 
     &__count {
-      margin-top: 2rem;
+      font-size: 1.2rem;
+      color: var(--color-font-darkest);
+      font-weight: 500;
+      // text-align: center;
     }
 
     &:hover &__img {
       transform: scale(1.05);
     }
   }
+
+  @media screen and (max-width: 34.68rem) {
+    padding: 7rem 1rem;
+  }
 }
 
 .planets {
   height: calc(100vh - 80px);
   background-color: #000;
-  background-image: url("../img/planets/mercury.jpeg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 100% 50%;
-  padding-top: 10em;
+  padding: 0 10rem;
+  padding-top: 5em;
   margin-top: 80px;
+
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+
+  &__img-cont {
+    flex: 2;
+    max-width: 60rem;
+    width: 100%;
+    margin: 0 auto;
+    margin-left: 2rem;
+
+    &__img {
+      display: block;
+      margin-left: auto;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    @media screen and (max-width: 90em) and (orientation: landscape) {
+      flex: 3;
+      max-width: 78rem;
+    }
+
+    @media screen and (max-width: 43.75em) {
+      order: 1;
+      margin: 0 auto;
+    }
+  }
 
   &__title {
     text-align: center;
@@ -233,42 +383,570 @@
     text-shadow: 0 3px 8px #000;
   }
 
-  &__button {
-    padding: 0 15rem;
-    &__name {
-      text-decoration: none;
-      color: var(--color-font);
-      text-align: center;
-      font-size: 1.2rem;
-      font-weight: 400;
-    }
-  }
-
   &__info {
-    // margin: 5em auto;
-    padding: 0 15em;
-    max-width: 120em;
+    flex: 1;
+    margin-bottom: 10rem;
 
     &__title {
       font-size: 8rem;
+
+      @media screen and (max-width: 43.75em) {
+        display: none;
+      }
     }
 
     &__about {
-      width: 50ch;
+      max-width: 50ch;
       margin: 3em 0;
+
+      @media screen and (max-width: 43.75em) {
+        width: auto;
+      }
+      color: var(--color-font-lighter);
     }
 
     &__data-list {
       list-style: none;
+      color: var(--color-font-lighter);
     }
+
+    @media screen and (max-width: 43.75em) {
+      order: 2;
+      padding: 0;
+    }
+  }
+
+  &__title-mobile {
+    font-size: 8rem;
+
+    @media screen and (min-width: 43.75em) {
+      display: none;
+    }
+
+    @media screen and (max-width: 34.68em) {
+      font-size: 6rem;
+    }
+  }
+
+  @media screen and (max-width: 93.75em) {
+    padding-top: 0;
+  }
+
+  @media screen and (max-width: 43.75em) {
+    flex-direction: column;
+    padding: 0 5rem;
+    height: auto;
+    margin-top: 10rem;
+  }
+
+  @media screen and (min-width: 31.25em) and (max-width: 64em) and (orientation: portrait) {
+    height: auto;
+    padding: 5rem 10rem;
+  }
+
+  @media screen and (max-width: 31.25em) and (orientation: landscape) {
+    height: calc(100vh - 80px);
+  }
+  @media screen and (min-width: 150em) {
+    height: max-content;
+    padding-top: 15rem;
   }
 }
 
 .weight,
 .jump {
-  padding: 10rem 15rem;
-  // padding-top: 10rem;
+  padding: 10rem 10rem;
   background-color: #000;
+  overflow: hidden;
+
+  @media screen and (max-width: 93.75em) {
+    padding: 5rem 10rem;
+  }
+
+  @media screen and (max-width: 43.75em) {
+    padding: 5rem 5rem;
+  }
+
+  &__form__input {
+    max-width: 300px;
+    min-height: 200px;
+    padding: 1rem;
+    border-radius: 50px;
+    font-family: inherit;
+    font-size: 8rem;
+    text-align: center;
+    border: none;
+
+    &:focus {
+      border: 8px solid var(--color-primary-light);
+
+      @media screen and (max-width: 93.75em) {
+        border: 2px solid var(--color-primary-light);
+      }
+    }
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    &[type="number"] {
+      -moz-appearance: textfield;
+    }
+
+    &-label {
+      font-size: 2rem;
+
+      @media screen and (max-width: 28.125em) {
+        font-size: 1.5rem;
+        text-align: center;
+        line-height: 0.9;
+      }
+    }
+
+    @media screen and (max-width: 112.5em) {
+      max-width: 200px;
+      min-height: 150px;
+    }
+
+    @media screen and (max-width: 93.75em) {
+      font-size: 6rem;
+      max-width: 170px;
+      min-height: 120px;
+    }
+
+    @media screen and (max-width: 68.75em) {
+      max-width: 150px;
+      min-height: 100px;
+    }
+
+    @media screen and (max-width: 50em) {
+      max-width: 100px;
+      min-height: 60px;
+      font-size: 4rem;
+    }
+
+    @media screen and (max-width: 28.125em) {
+      font-size: 2rem;
+      max-width: 70px;
+      min-height: 40px;
+    }
+  }
+
+  &__form__radio {
+    display: none;
+
+    &-1:checked + label,
+    &-2:checked + label {
+      color: var(--color-primary-light);
+      background: #fff;
+    }
+  }
+
+  &__form__radio-label {
+    font-size: 4rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+    outline: 4px solid #fff;
+
+    @media screen and (max-width: 93.75em) {
+      font-size: 3rem;
+      outline: 2px solid #fff;
+    }
+
+    @media screen and (max-width: 50em) {
+      font-size: 2rem;
+    }
+
+    @media screen and (max-width: 28.125em) {
+      font-size: 1.5rem;
+      padding: 0.25rem 0.5rem;
+    }
+  }
+
+  &__result {
+    font-size: 2rem;
+    text-align: center;
+
+    &__answer {
+      font-size: 12rem;
+      position: relative;
+
+      @media screen and (max-width: 93.75em) {
+        font-size: 8rem;
+      }
+
+      @media screen and (max-width: 50em) {
+        font-size: 6rem;
+      }
+
+      @media screen and (max-width: 28.125em) {
+        font-size: 4rem;
+      }
+
+      &::before {
+        content: "You weigh";
+        position: absolute;
+        top: 10%;
+        left: 0;
+        font-size: 2rem;
+
+        @media screen and (max-width: 93.75em) {
+          top: 7%;
+        }
+
+        @media screen and (max-width: 50em) {
+          top: -2%;
+        }
+
+        @media screen and (max-width: 28.125em) {
+          font-size: 1.5rem;
+          top: -4%;
+        }
+      }
+
+      &__text {
+        position: absolute;
+        font-size: 2rem;
+        bottom: 10%;
+        right: 0;
+
+        @media screen and (max-width: 93.75em) {
+          bottom: 5%;
+        }
+
+        @media screen and (max-width: 50em) {
+          bottom: 0;
+        }
+
+        @media screen and (max-width: 28.125em) {
+          font-size: 1.5rem;
+          bottom: -5%;
+        }
+      }
+    }
+  }
+}
+
+.distance {
+  padding: 10rem 5rem;
+  text-align: right;
+  overflow: hidden;
+  position: relative;
+  text-shadow: 0 2px 50px rgba(0, 0, 0, 0.548);
+
+  @media screen and (max-width: 93.75em) {
+    padding: 5rem 10rem;
+  }
+
+  @media screen and (max-width: 43.75em) {
+    padding: 5rem 5rem;
+  }
+
+  @media screen and (max-width: 37.5em) {
+    text-align: left;
+    padding-bottom: 5rem;
+  }
+
+  &__title {
+    @media screen and (max-width: 37.5em) {
+      line-height: 0.9;
+      margin-bottom: 4rem;
+    }
+  }
+
+  &__answer {
+    margin-top: -5rem;
+  }
+
+  &__sun-img {
+    width: 150%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    position: absolute;
+    top: 0%;
+    right: -60%;
+    z-index: -10;
+  }
+}
+
+.gravity,
+.radius {
+  overflow: hidden;
+  padding: 10rem 5rem;
+  text-align: left;
+
+  @media screen and (max-width: 93.75em) {
+    padding: 5rem 10rem;
+  }
+
+  @media screen and (max-width: 43.75em) {
+    padding: 5rem 5rem;
+  }
+
+  &__desc {
+    width: 50ch;
+    min-width: 506px;
+    margin-bottom: 4rem;
+
+    color: var(--color-font-lighter);
+
+    @media screen and (max-width: 68.75em) {
+      min-width: 200px;
+      width: auto;
+    }
+  }
+
+  &__answer {
+    margin-top: -5rem;
+    width: max-content;
+  }
+
+  &__img {
+    width: 40%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: 63% 0%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 37.5em) {
+      width: 90%;
+      margin: 0;
+    }
+  }
+
+  @media screen and (max-width: 37.5em) {
+    padding: 5rem;
+  }
+}
+
+.radius {
+  // height: 900px;
+
+  img {
+    width: 50%;
+    border-radius: 50%;
+
+    @media screen and (max-width: 37.5em) {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 37.5em) {
+    height: auto;
+  }
+}
+
+.gravity {
+  img {
+    transform: rotate(-30deg);
+  }
+}
+
+.jump {
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+  position: relative;
+  overflow: hidden;
+
+  &__result__answer {
+    &::before {
+      content: "You can jump";
+      position: absolute;
+      top: 10%;
+      left: 0;
+      font-size: 2rem;
+
+      @media screen and (max-width: 93.75em) {
+        top: 7%;
+      }
+
+      @media screen and (max-width: 50em) {
+        top: -2%;
+      }
+
+      @media screen and (max-width: 28.125em) {
+        font-size: 1.5rem;
+        top: -4%;
+      }
+    }
+
+    &__text {
+      position: absolute;
+      font-size: 2rem;
+      bottom: 10%;
+      right: 0;
+
+      @media screen and (max-width: 93.75em) {
+        bottom: 5%;
+      }
+
+      @media screen and (max-width: 50em) {
+        bottom: 0;
+      }
+
+      @media screen and (max-width: 28.125em) {
+        font-size: 1.5rem;
+        bottom: -5%;
+      }
+    }
+  }
+
+  @media screen and (max-width: 37.5em) {
+    padding: 5rem;
+  }
+}
+
+.size {
+  overflow: hidden;
+  text-align: left;
+  padding: 10rem 5rem;
+
+  @media screen and (max-width: 93.75em) {
+    padding: 5rem 10rem;
+  }
+
+  @media screen and (max-width: 43.75em) {
+    padding: 5rem 5rem;
+  }
+
+  &__title {
+    line-height: 0.9;
+    margin-bottom: 2rem;
+    width: 20ch;
+
+    @media screen and (max-width: 43.75em) {
+      width: 15ch;
+    }
+
+    @media screen and (max-width: 37.5em) {
+      width: auto;
+    }
+  }
+
+  &__desc {
+    width: 50ch;
+    margin-bottom: 2rem;
+
+    color: var(--color-font-lighter);
+
+    @media screen and (max-width: 43.75em) {
+      width: 35ch;
+    }
+
+    @media screen and (max-width: 37.5em) {
+      width: auto;
+    }
+  }
+
+  &__data {
+    list-style: none;
+    font-size: 2rem;
+    line-height: 1.2;
+  }
+
+  &__volume {
+    position: relative;
+
+    &__text {
+      font-size: 2rem;
+      position: absolute;
+      top: 20%;
+      left: 0;
+
+      @media screen and (max-width: 125em) {
+        top: 13%;
+      }
+
+      @media screen and (max-width: 28.125em) {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &__earth {
+    width: 50%;
+    max-width: 600px;
+    display: inline-block;
+  }
+
+  &__answer {
+    font-size: 6rem;
+
+    @media screen and (max-width: 43.75em) {
+      font-size: 4rem;
+    }
+  }
+  @media screen and (max-width: 37.5em) {
+    padding: 5rem;
+  }
+}
+
+.temp,
+.escape-velocity {
+  overflow: hidden;
+  padding: 10rem 5rem;
+
+  @media screen and (max-width: 93.75em) {
+    padding: 5rem 10rem;
+  }
+
+  @media screen and (max-width: 43.75em) {
+    padding: 5rem 5rem;
+  }
+
+  &__title {
+    @media screen and (max-width: 37.5em) {
+      line-height: 0.9;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__desc {
+    width: 50ch;
+    min-width: 506px;
+    margin-bottom: 4rem;
+
+    color: var(--color-font-lighter);
+
+    @media screen and (max-width: 68.75em) {
+      width: auto;
+      min-width: 0;
+    }
+  }
+
+  &__answer {
+    margin-top: -5rem;
+  }
+
+  img {
+    width: 40%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: right;
+    margin: 0 auto;
+
+    @media screen and (max-width: 37.5em) {
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  @media screen and (max-width: 37.5em) {
+    padding: 5rem;
+  }
+}
+
+.temp {
+  &__title {
+    @media screen and (max-width: 37.5em) {
+      line-height: 0.9;
+      margin-bottom: 1.5rem;
+    }
+  }
 
   &__form__input {
     width: 300px;
@@ -317,194 +995,329 @@
     margin: 0 0.5rem;
     padding: 0.5rem 1rem;
     outline: 4px solid #fff;
-  }
 
-  &__result {
-    font-size: 2rem;
-    text-align: center;
-
-    &__answer {
-      font-size: 12rem;
-      position: relative;
-
-      &::before,
-      &::after {
-        position: absolute;
-        font-size: 2rem;
-      }
-
-      &::before {
-        content: "You weigh";
-        top: 10%;
-        left: 0;
-      }
-
-      &::after {
-        content: "on Mercury";
-        bottom: 10%;
-        right: 0;
-      }
+    @media screen and (max-width: 93.75em) {
+      font-size: 3rem;
+      outline: 2px solid #fff;
     }
-  }
-}
 
-.distance {
-  padding: 10rem 15rem;
-  text-align: right;
-  // background: url("../img/planets/sun.jpeg");
-  // background-size: cover;
-  // background-position: top left;
-  overflow: hidden;
-  position: relative;
-  text-shadow: 0 2px 50px rgba(0, 0, 0, 0.548);
-
-  &__answer {
-    font-size: 12rem;
-    margin-top: -5rem;
-  }
-
-  &__sun-img {
-    width: 150%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    position: absolute;
-    top: 0%;
-    right: -60%;
-    z-index: -10;
-  }
-}
-
-.gravity,
-.radius {
-  padding: 10rem 15rem;
-  text-align: left;
-
-  &__desc {
-    width: 50ch;
-    min-width: 506px;
-    margin-bottom: 4rem;
-  }
-
-  &__answer {
-    font-size: 12rem;
-    margin-top: -5rem;
-  }
-
-  &__img {
-    width: 40%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    object-position: 63% 0%;
-    margin: 0 auto;
-  }
-}
-
-.radius {
-  height: 900px;
-
-  img {
-    width: 50%;
-    border-radius: 50%;
-  }
-}
-
-.gravity {
-  img {
-    transform: rotate(-30deg);
-  }
-}
-
-.jump {
-  padding-top: 5rem;
-  padding-bottom: 10rem;
-  position: relative;
-
-  &__result__answer {
-    &::before,
-    &::after {
-      position: absolute;
+    @media screen and (max-width: 50em) {
       font-size: 2rem;
     }
 
-    &::before {
-      content: "You can jump";
-      top: 10%;
-      left: 0;
-    }
-
-    &::after {
-      content: "on Mercury";
-      bottom: 10%;
-      right: 0;
+    @media screen and (max-width: 28.125em) {
+      font-size: 1.5rem;
+      padding: 0.25rem 0.5rem;
     }
   }
 }
 
-.size {
-  text-align: left;
-  padding: 10rem 15rem;
+.exploration-section {
+  padding: 12rem 0;
+  overflow-x: hidden;
 
-  &__title {
-    line-height: 0.9;
-    margin-bottom: 2rem;
-    width: 20ch;
+  @media screen and (max-width: 34.68em) {
+    padding: 7rem 2rem;
   }
 
-  &__desc {
-    width: 50ch;
-    margin-bottom: 2rem;
-  }
-
-  &__data {
-    list-style: none;
-    font-size: 2rem;
-    line-height: 1.2;
-  }
-
-  &__volume {
-    font-size: 12rem;
+  .space-exploration {
+    width: 80%;
+    max-width: 60rem;
+    margin: 0 auto;
+    margin-top: 5rem;
     position: relative;
 
-    &::before {
-      content: "Volume of Mercury is";
-      font-size: 2rem;
+    ::before {
+      content: "";
+      height: 100%;
+      width: 1px;
+      background-color: #fff;
       position: absolute;
-      top: 20%;
-      left: 0;
+      top: 0%;
+      left: 50%;
+      transform: translateX(-50%);
     }
   }
 
-  &__earth {
-    width: 50%;
-    max-width: 600px;
-    display: inline-block;
+  .space-exploration-title {
+    font-size: 4rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 0.9;
+    max-width: 70%;
+    margin: 0 auto;
+
+    @media screen and (max-width: 34.68em) {
+      font-size: 3rem;
+      margin-top: -33px;
+    }
+  }
+}
+.nasa-eye {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  // margin-top: 10vh;
+
+  @media screen and (min-width: 34.68em) {
+    padding-top: 100px;
   }
 
-  &__answer {
-    font-size: 6rem;
+  &-title {
+    font-size: 3rem;
+    min-height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: 34.68em) {
+      display: none;
+    }
+  }
+
+  iframe {
+    min-height: calc(100vh - 100px);
+
+    @media screen and (max-width: 34.68em) {
+      min-height: calc(100vh - 70px);
+    }
   }
 }
 
-.temp,
-.escape-velocity {
-  padding: 10rem 15rem;
+.footer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-primary);
+  padding: 7rem 0;
 
-  &__desc {
-    width: 50ch;
-    min-width: 506px;
-    margin-bottom: 4rem;
+  @media screen and (max-width: 34.68em) {
+    padding: 5rem 0;
   }
 
-  &__answer {
-    font-size: 12rem;
-    margin-top: -5rem;
+  &__logo-box {
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    will-change: transform;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @media screen and (max-width: 34.68em) {
+      display: none;
+    }
   }
+
+  &__logo {
+    width: 40px;
+    aspect-ratio: 1;
+    object-fit: contain;
+  }
+
+  &__name {
+    font-size: 3rem;
+    color: var(--color-font);
+  }
+
+  .list {
+    flex-basis: 50%;
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    list-style: none;
+    align-items: center;
+
+    @media screen and (max-width: 34.68em) {
+      gap: 0rem;
+    }
+  }
+
+  .list-item {
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-font);
+    text-decoration: none;
+    text-align: center;
+    border-radius: 50px;
+    padding: 0.2em 1em;
+
+    display: flex;
+    align-items: center;
+
+    transition: all 0.2s;
+
+    &:hover {
+      background-color: #fff;
+      color: var(--color-primary-light);
+    }
+
+    @media screen and (max-width: 34.68em) {
+      padding: 0.2em 0.5em;
+      font-size: 1.6rem;
+    }
+  }
+
+  .contact {
+    flex-basis: 50%;
+
+    h5 {
+      font-size: 2rem;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .svg-container {
+      margin: 0 auto;
+      display: flex;
+      gap: 5rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+
+      img {
+        width: 100%;
+      }
+
+      .svg {
+        width: 50px;
+        will-change: transform;
+        transition: transform 0.2s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        @media screen and (max-width: 34.68em) {
+          width: 30px;
+        }
+      }
+    }
+  }
+}
+
+.main-planets {
+  overflow-x: hidden;
+}
+
+#menu-overlay {
+  position: relative;
 
   img {
-    width: 40%;
-    aspect-ratio: 1/1;
+    width: 100%;
+    aspect-ratio: 1;
     object-fit: cover;
-    object-position: right;
-    margin: 0 auto;
+  }
+
+  .overlay {
+    height: 100vh;
+    max-width: 100vw;
+    background: rgba(0, 0, 0, 0.911);
+    backdrop-filter: blur(3px);
+
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+
+    padding: 2.8rem;
+  }
+
+  .close {
+    width: 5%;
+    background: rgba(255, 255, 255, 0.733);
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: content-box;
+    border-radius: 50%;
+
+    margin-left: auto;
+  }
+
+  .menu-nav {
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .menu-nav-list {
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    list-style: none;
+  }
+
+  .menu-nav-items {
+    font-size: 3rem;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 50px;
+    padding: 0rem 2rem;
+  }
+
+  .active-page {
+    color: #000;
+    // background-color: rgba(255, 255, 255, 0.835);
+    background-image: linear-gradient(
+      to bottom right,
+      rgba(255, 255, 255, 0.835),
+      rgba(255, 255, 255, 0.65)
+    );
+  }
+}
+
+.side-menu-planets {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  // transform-origin: left;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+
+  @media screen and (min-width: 34.68em) {
+    top: 0%;
+    left: -20%;
+    transform: translateY(-50%);
+  }
+
+  .planets-button__name {
+    margin-top: 1rem;
+    text-decoration: none;
+    background: transparent;
+    color: var(--color-font);
+
+    text-align: center;
+    font-family: inherit;
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.623);
+    cursor: pointer;
   }
 }

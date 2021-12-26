@@ -1,8 +1,19 @@
 import escape from "../img/escape_velocity.jpg";
+import { motion } from "framer-motion";
+import { moveRightAnim } from "../animations";
+import useScroll from "../components/useScroll";
 
-function EscapeVelocity() {
+function EscapeVelocity({ escapeVelocity }) {
+  const [element, control] = useScroll(0.5);
+
   return (
-    <section className="escape-velocity">
+    <motion.section
+      variants={moveRightAnim}
+      initial="hidden"
+      animate={control}
+      ref={element}
+      className="escape-velocity max-width"
+    >
       <div>
         <h2 className="escape-velocity__title">Escape Velocity</h2>
         <p className="escape-velocity__desc">
@@ -11,10 +22,10 @@ function EscapeVelocity() {
           It is the speed at which the sum of an object's kinetic energy and its
           gravitational potential energy is equal to zero.
         </p>
-        <p className="escape-velocity__answer big-font">9 m/s</p>
+        <p className="escape-velocity__answer big-font">{escapeVelocity}</p>
       </div>
       <img src={escape} alt="rSpace X rocket launching" />
-    </section>
+    </motion.section>
   );
 }
 

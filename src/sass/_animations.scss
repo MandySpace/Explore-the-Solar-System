@@ -1,31 +1,3 @@
-@keyframes opacity-anim {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes moveLeft {
-  0% {
-    transform: translateX(30%);
-    opacity: 0;
-  }
-
-  60% {
-    opacity: 0;
-  }
-
-  80% {
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
 @keyframes moveUp {
   0% {
     letter-spacing: 10px;
@@ -52,6 +24,16 @@
 
   100% {
     text-shadow: none;
+  }
+}
+
+@keyframes fadeAnim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }
 
