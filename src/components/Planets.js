@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-import { fadeInAnim } from "../animations";
 import { useAnimation } from "framer-motion";
 import { useEffect } from "react";
 
