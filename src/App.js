@@ -6,11 +6,18 @@ import { Route, Switch } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import NasaEye from "./pages/NasaEye";
 import ScrollTop from "./components/ScrollTop";
-import { useLocation } from "react-router-dom";
+import { useLocation, useHistory } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import { useEffect } from "react";
 
 function App() {
   const location = useLocation();
+  const history = useHistory();
+
+  useEffect(() => {
+    history.push("/");
+  }, [history]);
+
   return (
     <>
       <ScrollTop />

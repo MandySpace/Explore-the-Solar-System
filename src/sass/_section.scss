@@ -105,8 +105,9 @@
 }
 
 .top {
-  background-image: url("../img/solar_system_1_2400.jpg"),
-    radial-gradient(transparent 60%, rgba(0, 0, 0, 0.5));
+  background-image: url("../img/solar_system_1_2400.jpg");
+  // radial-gradient(transparent 90%, rgba(0, 0, 0, 0.5));
+  background-color: rgba(0, 0, 0, 0.45);
   background-size: cover;
   background-position: 0% 80%;
   background-attachment: fixed;
@@ -116,6 +117,14 @@
 
   @media screen and (min-width: 2400px) {
     background-image: url("../img/solar_system_1.jpg");
+  }
+
+  @media screen and (max-width: 1440px) {
+    background-image: url("../img/solar_system_1_1920.jpg");
+  }
+
+  @media screen and (max-width: 400px) {
+    background-image: url("../img/solar_system_1_640.jpg");
   }
 
   &::before {

@@ -1,5 +1,4 @@
-import { useAnimation } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 function Planets({
   planetName,
@@ -12,13 +11,17 @@ function Planets({
   tilt,
   image,
 }) {
-  const control = useAnimation();
-
-  control.start("hidden");
+  const imgRef = useRef(null);
 
   useEffect(() => {
-    setTimeout(() => control.start("show"), 100);
-  });
+    console.log("dd");
+
+    imgRef.current.style.opacity = 0;
+  }, [image]);
+
+  const loadEventHandler = () => {
+    imgRef.current.style.opacity = 1;
+  };
 
   return (
     <section className="planets max-width">
@@ -49,7 +52,13 @@ function Planets({
         </div>
       </div>
       <div className="planets__img-cont">
-        <img src={image} alt="planet" className="planets__img-cont__img" />
+        <img
+          ref={imgRef}
+          src={image}
+          onLoad={loadEventHandler}
+          alt="planet"
+          className="planets__img-cont__img"
+        />
       </div>
     </section>
   );

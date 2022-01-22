@@ -1,9 +1,9 @@
 import planets from "../img/planets/earth.jpg";
-import dwarf_planet from "../img/bodies/dwarf_planet.jpeg";
+import dwarf_planet from "../img/bodies/dwarf_planet.jpg";
 import asteroid from "../img/bodies/asteroid.jpeg";
-import comet from "../img/bodies/comet.jpeg";
-import moon from "../img/bodies/moon.jpeg";
-import charon from "../img/bodies/charon.jpeg";
+import comet from "../img/bodies/comet.jpg";
+import moon from "../img/bodies/moon.jpg";
+import charon from "../img/bodies/charon.jpg";
 import { motion } from "framer-motion";
 import { fadeInFastAnim, scaleAnim, moveUpAnim } from "../animations";
 import useScroll from "./useScroll";

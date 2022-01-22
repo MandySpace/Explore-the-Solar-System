@@ -1,4 +1,4 @@
-import sun from "../img/planets/sun.jpeg";
+import sun from "../img/planets/sun.jpg";
 import { motion } from "framer-motion";
 import { moveLeftAnim } from "../animations";
 import useScroll from "../components/useScroll";
