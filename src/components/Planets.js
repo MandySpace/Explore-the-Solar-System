@@ -14,8 +14,6 @@ function Planets({
   const imgRef = useRef(null);
 
   useEffect(() => {
-    console.log("dd");
-
     imgRef.current.style.opacity = 0;
   }, [image]);
 
